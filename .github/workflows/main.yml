@@ -15,8 +15,19 @@ jobs:
         with:
           node-version: 20
 
+      - name: Change to Project Directory
+        run: cd KashtankaWeb
+
       - name: Install Dependencies
         run: npm install
+        working-directory: ./KashtankaWeb
 
       - name: Build Angular App
-        run: npm run build
+        run: npm run build -- --output-path=dist --base-href=/${{ github.repository }}/
+        working-directory: ./KashtankaWeb
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Ветка, на которую будет производиться деплой
+          folder: KashtankaWeb/dist  # Папка, которую нужно задеплоить
