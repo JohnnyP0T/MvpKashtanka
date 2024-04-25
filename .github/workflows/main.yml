@@ -27,23 +27,10 @@ jobs:
         run: npm run build -- --output-path=dist --base-href=/${{ github.repository }}/
         working-directory: ./KashtankaWeb
 
-##      - name: Deploy
-##        if: success()
-##        uses: peaceiris/actions-gh-pages@v3
-##        with:
-##          github_token: ${{ secrets.MYSECRET }}
-##          publish_dir: ./KashtankaWeb/dist/kashtanka-web/browser
-##          enable_jekyll: true
-#
-#      - name: Build and Deploy
-#        uses: JamesIves/github-pages-deploy-action@v4
-#        env:
-#          ACCESS_TOKEN: ${{ secrets.MYSECRET }}
-#          BASE_BRANCH: main
-#          BRANCH: gh-pages
-#          FOLDER: dist/kashtanka-web
-#          BUILD_SCRIPT: npm install && npm run build -- --prod
-##
+      - name: List distribution directory
+        run: ls -l dist
+        working-directory: ./KashtankaWeb
+        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
