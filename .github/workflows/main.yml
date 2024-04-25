@@ -23,13 +23,8 @@ jobs:
         working-directory: ./KashtankaWeb
 
 
-
       - name: Build Angular App
         run: npm run build -- --output-path=dist --base-href=/${{ github.repository }}/
-        working-directory: ./KashtankaWeb
-
-      - name: List output files
-        run: ls -l KashtankaWeb/dist
         working-directory: ./KashtankaWeb
 
       - name: Deploy to GitHub Pages
