@@ -30,9 +30,10 @@ jobs:
       - name: Deploy
         if: success()
         uses: peaceiris/actions-gh-pages@v3
+        working-directory: ./KashtankaWeb/dist/kashtanka-web/browser
         with:
           github_token: ${{ secrets.MYSECRET }}
-          publish_dir: dist/kashtanka-web
+          publish_dir: dist/kashtanka-web/browser
           enable_jekyll: true
 #
 #      - name: Deploy to GitHub Pages
