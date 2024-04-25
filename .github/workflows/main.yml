@@ -32,3 +32,4 @@ jobs:
           token: ${{ secrets.MYSECRET }}  
           branch: gh-pages
           folder: KashtankaWeb/dist
+
