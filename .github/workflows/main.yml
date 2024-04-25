@@ -36,7 +36,7 @@ jobs:
         with:
           token: ${{ secrets.MYSECRET }}
           branch: gh-pages
-          folder: KashtankaWeb/dist/kashtanka-web/browser/
+          folder: KashtankaWeb/dist/browser
 
 
 
