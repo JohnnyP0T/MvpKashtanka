@@ -29,5 +29,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Ветка, на которую будет производиться деплой
-          folder: KashtankaWeb/dist  # Папка, которую нужно задеплоить
+          token: ${{ secrets.MYSECRET }}  
+          branch: gh-pages
+          folder: KashtankaWeb/dist
