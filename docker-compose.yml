@@ -1,0 +1,27 @@
+version: '3.8'
+networks:
+  aspnetcoreapp-network:
+    driver: bridge
+services:
+  kashtanka-api:
+    image: kashtanka.api
+    build:
+      context: KashtankaApi/
+      dockerfile: src/Kashtanka.Api/Dockerfile
+    ports:
+      - "8080:8080" # Порт для ASP.NET API
+    networks:
+      - aspnetcoreapp-network
+
+  kashtanka-web:
+    container_name: kashtanka.web
+    image: kashtanka.web
+    build:
+      context: KashtankaWeb/
+      dockerfile: Dockerfile
+      args:
+        API_URL: http://host.docker.internal:8080 
+    ports:
+      - "80:80" # Порт для Angular приложения
+    networks:
+      - aspnetcoreapp-network
