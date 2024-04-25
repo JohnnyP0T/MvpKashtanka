@@ -27,12 +27,20 @@ jobs:
         run: npm run build -- --output-path=dist --base-href=/${{ github.repository }}/
         working-directory: ./KashtankaWeb
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.MYSECRET }}  
-          branch: gh-pages
-          folder: KashtankaWeb/dist
+          github_token: ${{ secrets.MYSECRET }}
+          publish_dir: dist/kashtanka-web
+          enable_jekyll: true
+#
+#      - name: Deploy to GitHub Pages
+#        uses: JamesIves/github-pages-deploy-action@v4
+#        with:
+#          token: ${{ secrets.MYSECRET }}
+#          branch: gh-pages
+#          folder: KashtankaWeb/dist
 
 
 
